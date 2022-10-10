@@ -1,13 +1,14 @@
 import Head from "next/head";
-import { FormEventHandler } from "react";
+import React, { FormEvent } from "react";
 import Input from "../shared/components/TextInput";
+import { useRouter } from "next/router";
 
-export default function Home() {
-  const submitData: FormEventHandler<HTMLFormElement> = (e): FormEventHandler<HTMLFormElement> => {
+export default function App() {
+  const router = useRouter();
+
+  const submitForm = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(e.timeStamp);
-
-    return this as FormEventHandler<HTMLFormElement>;
+    router.push("/home");
   };
 
   return (
@@ -19,13 +20,15 @@ export default function Home() {
 
       <main>
         <header>
-          <form onSubmit={submitData(this)}>
-            <h3>Business Wiki</h3>
+        <h3>Business Wiki</h3>
+        </header>
+        <section>
+          <form onSubmit={submitForm}>
             <Input id="username" text="User Name" placeholder="Name..." />
             <Input id="password" text="Password" placeholder="Password..." />
             <button type="submit">LOGIN</button>
           </form>
-        </header>
+        </section>
       </main>
 
       <footer>
