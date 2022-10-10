@@ -1,13 +1,15 @@
 import { AppProps } from 'next/app';
 import { useState } from 'react';
 import { UserContext } from '../shared/contexts/UserContext';
+import { User } from '../shared/models/User';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [user, setUser] = useState({} as User);
 
     return (
-        <UserContext.Provider value={{ username: username, password: password, setUsername: setUsername }}>
+        <UserContext.Provider value={
+            { user: user, setUser: setUser }
+        }>
             <Component {...pageProps} />
         </UserContext.Provider>
     );

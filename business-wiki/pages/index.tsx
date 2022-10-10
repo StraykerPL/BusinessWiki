@@ -3,20 +3,27 @@ import React, { FormEvent, useContext } from "react";
 import Input from "../shared/components/TextInput";
 import { useRouter } from "next/router";
 import { UserContext } from "../shared/contexts/UserContext";
+import { User } from "../shared/models/User";
 
 export default function App() {
   const router = useRouter();
   const context = useContext(UserContext);
 
-  const submitForm = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
+  const loadDataToObjectAndContext = (e: FormEvent<HTMLFormElement>) => {
     const ok = e.target as typeof e.target & {
       username: { value: string },
       password: { value: string }
     };
 
-    context.setUsername(ok.username.value);
+    context.setUser(
+      { username: ok.username.value, password: ok.password.value } as User
+    );
+  };
+
+  const submitForm = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    loadDataToObjectAndContext(e);
 
     router.push("/home");
   };

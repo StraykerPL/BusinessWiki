@@ -15,7 +15,7 @@ export default function Home() {
 
       <header className="home__header">
           <h3>Business Wiki</h3>
-          <p>{context.username}</p>
+          <p>{context.user.username}</p>
           <Link href="/">
             <button>LOGOUT</button>
           </Link>
