@@ -1,3 +1,4 @@
+import "../pages/styles.scss";
 import { AppProps } from 'next/app';
 import { useState } from 'react';
 import { UserContext } from '../shared/contexts/UserContext';

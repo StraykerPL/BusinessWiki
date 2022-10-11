@@ -1,3 +1,5 @@
+import styles from "../shared/styles/index.module.scss";
+
 import Head from "next/head";
 import React, { FormEvent, useContext } from "react";
 import Input from "../shared/components/TextInput";
@@ -8,6 +10,7 @@ import { User } from "../shared/models/User";
 export default function App() {
   const router = useRouter();
   const context = useContext(UserContext);
+  const homeRoutePath = "/home";
 
   const loadDataToObjectAndContext = (e: FormEvent<HTMLFormElement>) => {
     const ok = e.target as typeof e.target & {
@@ -25,30 +28,30 @@ export default function App() {
 
     loadDataToObjectAndContext(e);
 
-    router.push("/home");
+    router.push(homeRoutePath);
   };
 
   return (
-    <div className="container">
+    <div className={styles.container}>
       <Head>
         <title>Business Wiki - Login</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <header>
-        <h3>Business Wiki</h3>
+      <main className={styles.container__main}>
+        <header className={styles.container__mainheader}>
+          <h3>Business Wiki</h3>
         </header>
-        <section>
-          <form onSubmit={submitForm}>
-            <Input id="username" text="User Name" placeholder="Name..." />
-            <Input id="password" text="Password" placeholder="Password..." />
+        <section className={styles.container__maincontent}>
+          <form onSubmit={submitForm} className={styles.container__maincontentform}>
+            <Input id="username" type="text" text="User Name" placeholder="Name..." />
+            <Input id="password" type="password" text="Password" placeholder="Password..." />
             <button type="submit">LOGIN</button>
           </form>
         </section>
       </main>
 
-      <footer>
+      <footer className={styles.container__footer}>
       </footer>
     </div>
   );
