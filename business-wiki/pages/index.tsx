@@ -1,5 +1,6 @@
 import moduleStyles from "../shared/styles/index.module.scss";
 import formStyles from "../shared/styles/Form.module.scss";
+import buttonStyles from "../shared/styles/Button.module.scss";
 
 import Head from "next/head";
 import React, { FormEvent, useContext } from "react";
@@ -47,7 +48,7 @@ export default function App() {
           <form onSubmit={submitForm} className={formStyles.default}>
             <Input id="username" type="text" text="User Name" placeholder="Name..." />
             <Input id="password" type="password" text="Password" placeholder="Password..." />
-            <button type="submit">LOGIN</button>
+            <button type="submit" className={buttonStyles.button}>LOGIN</button>
           </form>
         </section>
       </main>
