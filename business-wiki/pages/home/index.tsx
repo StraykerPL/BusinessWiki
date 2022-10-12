@@ -1,3 +1,5 @@
+import moduleStyles from "../../shared/styles/Default.module.scss";
+
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
@@ -7,24 +9,28 @@ export default function Home() {
   const context = React.useContext(UserContext);
 
   return (
-    <div className="home">
+    <div className={moduleStyles.container}>
       <Head>
         <title>Business Wiki - Home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className="home__header">
-          <h3>Business Wiki</h3>
-          <p>{context.user.username}</p>
-          <Link href="/">
-            <button>LOGOUT</button>
-          </Link>
-      </header>
-
-      <main>
-          <section className="home__list"></section>
-          <section className="home__page-content"></section>
+      <main className={moduleStyles.container__main}>
+        <header className={moduleStyles.container__mainheader}>
+            <h3>Business Wiki</h3>
+            <p>{context.user.username}</p>
+            <Link href="/">
+              <button>LOGOUT</button>
+            </Link>
+        </header>
+        <section className=""></section>
+        <section className=""></section>
       </main>
+
+      <footer className={moduleStyles.container__main}>
+        <p>Copyright Daniel Strayker Nowak</p>
+        <p>All rights reserved, MIT license</p>
+      </footer>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import moduleStyles from "../shared/styles/index.module.scss";
+import moduleStyles from "../shared/styles/Default.module.scss";
 import formStyles from "../shared/styles/Form.module.scss";
 import buttonStyles from "../shared/styles/Button.module.scss";
 
