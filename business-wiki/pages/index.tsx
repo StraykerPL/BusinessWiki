@@ -1,4 +1,5 @@
-import styles from "../shared/styles/index.module.scss";
+import moduleStyles from "../shared/styles/index.module.scss";
+import formStyles from "../shared/styles/Form.module.scss";
 
 import Head from "next/head";
 import React, { FormEvent, useContext } from "react";
@@ -32,18 +33,18 @@ export default function App() {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={moduleStyles.container}>
       <Head>
         <title>Business Wiki - Login</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.container__main}>
-        <header className={styles.container__mainheader}>
+      <main className={moduleStyles.container__main}>
+        <header className={moduleStyles.container__mainheader}>
           <h3>Business Wiki</h3>
         </header>
-        <section className={styles.container__maincontent}>
-          <form onSubmit={submitForm} className={styles.container__maincontentform}>
+        <section className={moduleStyles.container__maincontent}>
+          <form onSubmit={submitForm} className={formStyles.default}>
             <Input id="username" type="text" text="User Name" placeholder="Name..." />
             <Input id="password" type="password" text="Password" placeholder="Password..." />
             <button type="submit">LOGIN</button>
@@ -51,7 +52,9 @@ export default function App() {
         </section>
       </main>
 
-      <footer className={styles.container__footer}>
+      <footer className={moduleStyles.container__footer}>
+        <p>Copyright Daniel Strayker Nowak</p>
+        <p>All rights reserved, MIT license</p>
       </footer>
     </div>
   );

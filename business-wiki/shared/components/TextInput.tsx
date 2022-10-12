@@ -1,3 +1,5 @@
+import inputStyles from "../styles/TextInput.module.scss";
+
 const TextInput = (
     props: {
         id: string;
@@ -6,9 +8,9 @@ const TextInput = (
         placeholder: string;
     }) => {
     return (
-        <div className="input">
-            <label htmlFor={props.id}>{props.text}</label>
-            <input id={props.id} name={props.id} type={props.type} placeholder={props.placeholder} required />
+        <div className={inputStyles.input}>
+            <label htmlFor={props.id} className={inputStyles.input__label}>{props.text}</label>
+            <input id={props.id} name={props.id} type={props.type} placeholder={props.placeholder} className={inputStyles.input__textbox} required />
         </div>
     );
 };
