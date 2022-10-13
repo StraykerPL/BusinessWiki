@@ -5,6 +5,7 @@ import buttonStyles from "../shared/styles/Button.module.scss";
 import Head from "next/head";
 import React, { FormEvent, useContext } from "react";
 import Input from "../shared/components/TextInput";
+import Footer from "../shared/components/Footer";
 import { useRouter } from "next/router";
 import { UserContext } from "../shared/contexts/UserContext";
 import { User } from "../shared/models/User";
@@ -53,10 +54,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer className={moduleStyles.container__footer}>
-        <p>Copyright Daniel Strayker Nowak</p>
-        <p>All rights reserved, MIT license</p>
-      </footer>
+      <Footer />
     </div>
   );
 }

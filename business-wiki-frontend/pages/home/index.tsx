@@ -3,6 +3,7 @@ import buttonStyles from "../../shared/styles/Button.module.scss";
 
 import Head from "next/head";
 import Link from "next/link";
+import Footer from "../../shared/components/Footer";
 import React from "react";
 import { UserContext } from "../../shared/contexts/UserContext";
 
@@ -28,10 +29,7 @@ export default function Home() {
         <section className=""></section>
       </main>
 
-      <footer className={moduleStyles.container__footer}>
-        <p>Copyright Daniel Strayker Nowak</p>
-        <p>All rights reserved, MIT license</p>
-      </footer>
+      <Footer />
     </div>
   );
 };
