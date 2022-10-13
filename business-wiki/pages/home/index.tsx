@@ -1,4 +1,5 @@
 import moduleStyles from "../../shared/styles/Default.module.scss";
+import buttonStyles from "../../shared/styles/Button.module.scss";
 
 import Head from "next/head";
 import Link from "next/link";
@@ -20,14 +21,14 @@ export default function Home() {
             <h3>Business Wiki</h3>
             <p>{context.user.username}</p>
             <Link href="/">
-              <button>LOGOUT</button>
+              <button className={buttonStyles.button}>LOGOUT</button>
             </Link>
         </header>
         <section className=""></section>
         <section className=""></section>
       </main>
 
-      <footer className={moduleStyles.container__main}>
+      <footer className={moduleStyles.container__footer}>
         <p>Copyright Daniel Strayker Nowak</p>
         <p>All rights reserved, MIT license</p>
       </footer>
