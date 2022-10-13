@@ -8,25 +8,25 @@ import Input from "../shared/components/TextInput";
 import Footer from "../shared/components/Footer";
 import { useRouter } from "next/router";
 import { UserContext } from "../shared/contexts/UserContext";
-import { User } from "../shared/models/User";
+import { UserInterface } from "../shared/models/UserInterface";
 
 export default function App() {
   const router = useRouter();
   const context = useContext(UserContext);
   const homeRoutePath = "/home";
 
-  const loadDataToObjectAndContext = (e: FormEvent<HTMLFormElement>) => {
+  const loadDataToObjectAndContext = (e: FormEvent<HTMLFormElement>): void => {
     const ok = e.target as typeof e.target & {
       username: { value: string },
       password: { value: string }
     };
 
     context.setUser(
-      { username: ok.username.value, password: ok.password.value } as User
+      { username: ok.username.value, password: ok.password.value } as UserInterface
     );
   };
 
-  const submitForm = (e: FormEvent<HTMLFormElement>) => {
+  const submitForm = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
     loadDataToObjectAndContext(e);
