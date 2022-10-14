@@ -12,18 +12,38 @@ import { Page } from "../../shared/models/Page";
 import SidepanelListElement from "../../shared/components/SidepanelListElement";
 import SidepanelListAddElement from "../../shared/components/SidepanelListAddElement";
 import PageForm from "../../shared/components/PageForm";
+import { UserInterface } from "../../shared/models/UserInterface";
+import PageDetails from "../../shared/components/PageDetails";
 
 export default function Home() {
   const context = React.useContext(UserContext);
 
-  let pagesList: Array<Page> = [];
+  let pagesList: Array<Page> = [
+    {
+      id: 0,
+      title: "Welcome Page",
+      content: "This is the greeting page created by BusinessWiki for you.",
+      createdBy: {
+        id: 1,
+        username: "Business Wiki",
+        password: "1234"
+      } as UserInterface,
+    } as Page
+  ];
+
   let sidepanelPagesList: Array<SidepanelListElementInterface> = [
     {
       id: 0,
       title: "Welcome Page",
-      clickEvent: (e) => console.log(e)
+      clickEvent: (e) => showPageContent(e)
     } as SidepanelListElementInterface
   ];
+
+  const showPageContent = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    return (
+      <></>
+    );
+  };
 
   const addPageEvent = () => {
     return (
@@ -61,7 +81,7 @@ export default function Home() {
           <SidepanelListAddElement addPageEvent={addPageEvent} />
         </section>
         <section className={moduleStyles.content__board}>
-          <p>Welcome to Business Wiki!</p>
+          {sidepanelPagesList.length > 0 ? <PageDetails value={pagesList[0]} /> : <div>Welcome to Business Wiki</div>}
         </section>
       </main>
 
