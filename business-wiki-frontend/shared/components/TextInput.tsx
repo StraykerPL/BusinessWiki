@@ -1,16 +1,13 @@
+import { TextInputProps } from "../models/TextInputProps";
 import inputStyles from "../styles/TextInput.module.scss";
 
-const TextInput = (
-    props: {
-        id: string;
-        type: string;
-        text: string;
-        placeholder: string;
-    }) => {
+const { input, input__label, input__textbox } = inputStyles;
+
+const TextInput = ({ id, type, text, placeholder }: TextInputProps) => {
     return (
-        <div className={inputStyles.input}>
-            <label htmlFor={props.id} className={inputStyles.input__label}>{props.text}</label>
-            <input id={props.id} name={props.id} type={props.type} placeholder={props.placeholder} className={inputStyles.input__textbox} required />
+        <div className={input}>
+            <label htmlFor={id} className={input__label}>{text}</label>
+            <input id={id} name={id} type={type} placeholder={placeholder} className={input__textbox} required />
         </div>
     );
 };
