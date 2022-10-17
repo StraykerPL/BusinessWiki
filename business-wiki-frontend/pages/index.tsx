@@ -2,13 +2,12 @@ import moduleStyles from "../shared/styles/Default.module.scss";
 import formStyles from "../shared/styles/Form.module.scss";
 import buttonStyles from "../shared/styles/Button.module.scss";
 
-import Head from "next/head";
 import React, { FormEvent, useContext } from "react";
-import Input from "../shared/components/TextInput";
-import Footer from "../shared/components/Footer";
+import Head from "next/head";
 import { useRouter } from "next/router";
+import { Input, Footer } from "../shared";
 import { UserContext } from "../shared/contexts/UserContext";
-import { UserInterface } from "../shared/models/UserInterface";
+import { UserInterface } from "../shared/models/models";
 
 export default function App() {
   const router = useRouter();

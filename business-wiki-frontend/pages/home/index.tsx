@@ -4,16 +4,10 @@ import moduleStyles from "../../shared/styles/Home.module.scss";
 
 import Head from "next/head";
 import Link from "next/link";
-import Footer from "../../shared/components/Footer";
 import React, { useContext } from "react";
 import { UserContext } from "../../shared/contexts/UserContext";
-import { SidepanelListElementInterface } from "../../shared/models/SidepanelListElementInterface";
-import { PageInterface } from "../../shared/models/PageInterface";
-import SidepanelListElement from "../../shared/components/SidepanelListElement";
-import SidepanelListAddElement from "../../shared/components/SidepanelListAddElement";
-import PageForm from "../../shared/components/PageForm";
-import { UserInterface } from "../../shared/models/UserInterface";
-import PageDetails from "../../shared/components/PageDetails";
+import { PageForm, SidepanelListElement, SidepanelListAddElement, PageDetails, Footer } from "../../shared";
+import { PageInterface, UserInterface, SidepanelListElementInterface } from "../../shared/models/models";
 
 const { container, container__main, container__mainheader } = defaultStyles;
 const { button } = buttonStyles;
