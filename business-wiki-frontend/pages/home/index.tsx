@@ -58,7 +58,9 @@ export default function Home() {
   const showSidepanelList = (): JSX.Element => {
     return (
       <>
-        {sidepanelPagesList.length > 0 ? sidepanelPagesList.map((element) => <SidepanelListElement key={element.id} value={element} />) : ""}
+        {sidepanelPagesList.length > 0 ? sidepanelPagesList.map(
+          (element) => <SidepanelListElement key={element.id} clickEvent={element.clickEvent} title={element.title} id={0} />
+          ) : ""}
       </>
     );
   };
@@ -85,7 +87,9 @@ export default function Home() {
           <SidepanelListAddElement addPageEvent={addPageEvent} />
         </section>
         <section className={content__board}>
-          {sidepanelPagesList.length > 0 ? <PageDetails value={pagesList[0]} /> : <div>Welcome to Business Wiki</div>}
+          {sidepanelPagesList.length > 0 ?
+            <PageDetails title={pagesList[0].title} content={pagesList[0].content} createdBy={pagesList[0].createdBy} id={0} /> :
+            <div>Welcome to Business Wiki</div>}
         </section>
       </main>
 

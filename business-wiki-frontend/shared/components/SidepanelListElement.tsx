@@ -2,10 +2,10 @@ import moduleStyles from "../styles/SidepanelListElement.module.scss";
 
 import { SidepanelListElementInterface } from "../models/SidepanelListElementInterface";
 
-const SidepanelListElement = (props: { value: SidepanelListElementInterface }) => {
+const SidepanelListElement = ({ clickEvent, title }: SidepanelListElementInterface) => {
   return (
-    <div className={moduleStyles.container} onClick={props.value.clickEvent} >
-        <p>{props.value.title}</p>
+    <div className={moduleStyles.container} onClick={clickEvent} >
+        <p>{title}</p>
     </div>
   );
 };
