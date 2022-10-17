@@ -1,11 +1,11 @@
-import { Page } from "../models/Page";
+import { PageInterface } from "../models/PageInterface";
 
-const PageDetails = (props: { value: Page }) => {
+const PageDetails = ({ title, content, createdBy }: PageInterface) => {
   return (
     <div>
-        <h4>{props.value.title}</h4>
-        <p>{props.value.content}</p>
-        <p>Created by: {props.value.createdBy.username}</p>
+        <h4>{title}</h4>
+        <p>{content}</p>
+        <p>Created by: {createdBy.username}</p>
     </div>
   );
 };

@@ -8,7 +8,7 @@ import Footer from "../../shared/components/Footer";
 import React, { useContext } from "react";
 import { UserContext } from "../../shared/contexts/UserContext";
 import { SidepanelListElementInterface } from "../../shared/models/SidepanelListElementInterface";
-import { Page } from "../../shared/models/Page";
+import { PageInterface } from "../../shared/models/PageInterface";
 import SidepanelListElement from "../../shared/components/SidepanelListElement";
 import SidepanelListAddElement from "../../shared/components/SidepanelListAddElement";
 import PageForm from "../../shared/components/PageForm";
@@ -22,7 +22,7 @@ const { content, header__welcometext, content__sidepanel, content__board } = mod
 export default function Home() {
   const { user } = useContext(UserContext);
 
-  let pagesList: Array<Page> = [
+  let pagesList: Array<PageInterface> = [
     {
       id: 0,
       title: "Welcome Page",
@@ -32,7 +32,7 @@ export default function Home() {
         username: "Business Wiki",
         password: "1234"
       } as UserInterface,
-    } as Page
+    } as PageInterface
   ];
 
   let sidepanelPagesList: Array<SidepanelListElementInterface> = [

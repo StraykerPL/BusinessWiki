@@ -1,6 +1,6 @@
 import { UserInterface } from "./UserInterface"
 
-export interface Page {
+export interface PageInterface {
     id: number,
     title: string,
     content: string
