@@ -15,6 +15,10 @@ import PageForm from "../../shared/components/PageForm";
 import { UserInterface } from "../../shared/models/UserInterface";
 import PageDetails from "../../shared/components/PageDetails";
 
+const { container, container__main, container__mainheader } = defaultStyles;
+const { button } = buttonStyles;
+const { content, header__welcometext, content__sidepanel, content__board } = moduleStyles;
+
 export default function Home() {
   const { user } = useContext(UserContext);
 
@@ -60,27 +64,27 @@ export default function Home() {
   };
 
   return (
-    <div className={defaultStyles.container}>
+    <div className={container}>
       <Head>
         <title>Business Wiki - Home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={`${defaultStyles.container__main} ${moduleStyles.content}`}>
-        <header className={`${defaultStyles.container__mainheader}`}>
-            <div className={moduleStyles.header__welcometext}>
+      <main className={`${container__main} ${content}`}>
+        <header className={`${container__mainheader}`}>
+            <div className={header__welcometext}>
               <h3>Business Wiki</h3>
               <p>{user.username}</p>
             </div>
             <Link href="/">
-              <button className={buttonStyles.button}>LOGOUT</button>
+              <button className={button}>LOGOUT</button>
             </Link>
         </header>
-        <section className={moduleStyles.content__sidepanel}>
+        <section className={content__sidepanel}>
           {showSidepanelList()}
           <SidepanelListAddElement addPageEvent={addPageEvent} />
         </section>
-        <section className={moduleStyles.content__board}>
+        <section className={content__board}>
           {sidepanelPagesList.length > 0 ? <PageDetails value={pagesList[0]} /> : <div>Welcome to Business Wiki</div>}
         </section>
       </main>
