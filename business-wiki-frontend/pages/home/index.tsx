@@ -12,7 +12,7 @@ import { Page } from "../../shared/models/Page";
 import SidepanelListElement from "../../shared/components/SidepanelListElement";
 import SidepanelListAddElement from "../../shared/components/SidepanelListAddElement";
 import PageForm from "../../shared/components/PageForm";
-import { User } from "../../shared/models/User";
+import { UserInterface } from "../../shared/models/UserInterface";
 import PageDetails from "../../shared/components/PageDetails";
 
 export default function Home() {
@@ -27,7 +27,7 @@ export default function Home() {
         id: 1,
         username: "Business Wiki",
         password: "1234"
-      } as User,
+      } as UserInterface,
     } as Page
   ];
 

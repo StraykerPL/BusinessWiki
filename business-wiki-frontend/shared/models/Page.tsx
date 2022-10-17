@@ -1,8 +1,8 @@
-import { User } from "./User"
+import { UserInterface } from "./UserInterface"
 
 export interface Page {
     id: number,
     title: string,
     content: string
-    createdBy: User
+    createdBy: UserInterface
 }
