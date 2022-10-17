@@ -5,7 +5,7 @@ import moduleStyles from "../../shared/styles/Home.module.scss";
 import Head from "next/head";
 import Link from "next/link";
 import Footer from "../../shared/components/Footer";
-import React from "react";
+import React, { useContext } from "react";
 import { UserContext } from "../../shared/contexts/UserContext";
 import { SidepanelListElementInterface } from "../../shared/models/SidepanelListElementInterface";
 import { Page } from "../../shared/models/Page";
@@ -16,7 +16,7 @@ import { UserInterface } from "../../shared/models/UserInterface";
 import PageDetails from "../../shared/components/PageDetails";
 
 export default function Home() {
-  const context = React.useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   let pagesList: Array<Page> = [
     {
@@ -70,7 +70,7 @@ export default function Home() {
         <header className={`${defaultStyles.container__mainheader}`}>
             <div className={moduleStyles.header__welcometext}>
               <h3>Business Wiki</h3>
-              <p>{context.user.username}</p>
+              <p>{user.username}</p>
             </div>
             <Link href="/">
               <button className={buttonStyles.button}>LOGOUT</button>
