@@ -8,7 +8,7 @@ import Input from "../shared/components/TextInput";
 import Footer from "../shared/components/Footer";
 import { useRouter } from "next/router";
 import { UserContext } from "../shared/contexts/UserContext";
-import { UserInterface } from "../shared/models/UserInterface";
+import { User } from "../shared/models/User";
 
 export default function App() {
   const router = useRouter();
@@ -22,7 +22,7 @@ export default function App() {
     };
 
     context.setUser(
-      { username: ok.username.value, password: ok.password.value } as UserInterface
+      { username: ok.username.value, password: ok.password.value } as User
     );
   };
 
