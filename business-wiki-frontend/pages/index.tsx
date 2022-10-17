@@ -11,18 +11,20 @@ import { UserContext } from "../shared/contexts/UserContext";
 import { UserInterface } from "../shared/models/UserInterface";
 
 export default function App() {
-  const router = useRouter();
-  const context = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
   const homeRoutePath = "/home";
 
   const loadDataToObjectAndContext = (e: FormEvent<HTMLFormElement>): void => {
-    const ok = e.target as typeof e.target & {
+    const temporaryFormDataObj = e.target as typeof e.target & {
       username: { value: string },
       password: { value: string }
     };
 
-    context.setUser(
-      { username: ok.username.value, password: ok.password.value } as UserInterface
+    setUser(
+      {
+        username: temporaryFormDataObj.username.value,
+        password: temporaryFormDataObj.password.value
+      } as UserInterface
     );
   };
 
@@ -31,7 +33,7 @@ export default function App() {
 
     loadDataToObjectAndContext(e);
 
-    router.push(homeRoutePath);
+    useRouter().push(homeRoutePath);
   };
 
   return (
