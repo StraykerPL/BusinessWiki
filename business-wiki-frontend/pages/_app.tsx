@@ -9,7 +9,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
     return (
         <UserContext.Provider value={
-            { user, setUser: setUser }
+            { user, setUser }
         }>
             <Component {...pageProps} />
         </UserContext.Provider>
