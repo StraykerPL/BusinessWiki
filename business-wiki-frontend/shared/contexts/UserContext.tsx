@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, createContext } from "react";
+import { Dispatch, SetStateAction, createContext } from "react";
 import { UserInterface } from "../models/UserInterface";
 
 export const UserContext = createContext({
