@@ -11,6 +11,7 @@ import { UserContext } from "../shared/contexts/UserContext";
 import { UserInterface } from "../shared/models/UserInterface";
 
 export default function App() {
+  const router = useRouter();
   const { setUser } = useContext(UserContext);
   const homeRoutePath = "/home";
 
@@ -33,7 +34,7 @@ export default function App() {
 
     loadDataToObjectAndContext(e);
 
-    useRouter().push(homeRoutePath);
+    router.push(homeRoutePath);
   };
 
   return (
