@@ -1,15 +1,17 @@
 import "../pages/styles.scss";
+
 import { AppProps } from 'next/app';
 import { useState } from 'react';
-import { UserContext } from '../shared/contexts/UserContext';
-import { User } from '../shared/models/User';
+
+import { UserContext } from "../shared/contexts/UserContext";
+import { UserInterface } from "../shared/models/models";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-    const [user, setUser] = useState({} as User);
+    const [user, setUser] = useState({} as UserInterface);
 
     return (
         <UserContext.Provider value={
-            { user: user, setUser: setUser }
+            { user, setUser }
         }>
             <Component {...pageProps} />
         </UserContext.Provider>

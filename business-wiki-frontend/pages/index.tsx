@@ -2,30 +2,33 @@ import moduleStyles from "../shared/styles/Default.module.scss";
 import formStyles from "../shared/styles/Form.module.scss";
 import buttonStyles from "../shared/styles/Button.module.scss";
 
-import Head from "next/head";
 import React, { FormEvent, useContext } from "react";
-import Input from "../shared/components/TextInput";
+import Head from "next/head";
 import { useRouter } from "next/router";
+import { Input, Footer } from "../shared";
 import { UserContext } from "../shared/contexts/UserContext";
-import { User } from "../shared/models/User";
+import { UserInterface } from "../shared/models/models";
 
 export default function App() {
   const router = useRouter();
-  const context = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
   const homeRoutePath = "/home";
 
-  const loadDataToObjectAndContext = (e: FormEvent<HTMLFormElement>) => {
-    const ok = e.target as typeof e.target & {
+  const loadDataToObjectAndContext = (e: FormEvent<HTMLFormElement>): void => {
+    const temporaryFormDataObj = e.target as typeof e.target & {
       username: { value: string },
       password: { value: string }
     };
 
-    context.setUser(
-      { username: ok.username.value, password: ok.password.value } as User
+    setUser(
+      {
+        username: temporaryFormDataObj.username.value,
+        password: temporaryFormDataObj.password.value
+      } as UserInterface
     );
   };
 
-  const submitForm = (e: FormEvent<HTMLFormElement>) => {
+  const submitForm = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
     loadDataToObjectAndContext(e);
@@ -53,10 +56,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer className={moduleStyles.container__footer}>
-        <p>Copyright Daniel Strayker Nowak</p>
-        <p>All rights reserved, MIT license</p>
-      </footer>
+      <Footer />
     </div>
   );
 }

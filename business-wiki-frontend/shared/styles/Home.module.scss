@@ -1,0 +1,30 @@
+.header {
+    &__welcometext {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+        width: 300px;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    &__sidepanel {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        row-gap: 20px;
+        width: 25%;
+        background-color: #b3e0ff;
+        padding: 30px;
+    }
+    
+    &__board {
+        width: 75%;
+        padding: 50px;
+    }
+}
