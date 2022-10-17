@@ -1,7 +1,7 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, createContext } from "react";
 import { UserInterface } from "../models/UserInterface";
 
-export const UserContext = React.createContext({
+export const UserContext = createContext({
         user: {
             username: "username",
             password: "password"
