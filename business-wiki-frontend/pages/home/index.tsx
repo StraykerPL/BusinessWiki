@@ -54,7 +54,6 @@ export default function Home() {
     <div className={container}>
       <Head>
         <title>Business Wiki - Home</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={`${container__main} ${content}`}>
@@ -73,8 +72,6 @@ export default function Home() {
           {showDetails && <PageDetails {...pageDetails} />}
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 };

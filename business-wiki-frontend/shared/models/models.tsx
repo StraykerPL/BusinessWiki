@@ -1,4 +1,4 @@
-import { MouseEventHandler } from "react";
+import { MouseEventHandler, ReactNode } from "react";
 
 export interface PageInterface {
     id: number,
@@ -26,6 +26,10 @@ export interface TextInputProps {
 
 export interface SidepanelListInputProps {
     elements: Array<SidepanelListElementInterface>
+}
+
+export interface LayoutInputProps {
+    children: ReactNode
 }
 
 export interface UserInterface {
