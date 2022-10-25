@@ -40,7 +40,6 @@ export default function App() {
     <div className={moduleStyles.container}>
       <Head>
         <title>Business Wiki - Login</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={moduleStyles.container__main}>
@@ -55,8 +54,6 @@ export default function App() {
           </form>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 }

@@ -63,7 +63,6 @@ export default function Home() {
     <div className={container}>
       <Head>
         <title>Business Wiki - Home</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={`${container__main} ${content}`}>
@@ -86,8 +85,6 @@ export default function Home() {
             <div>Welcome to Business Wiki</div>}
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 };
