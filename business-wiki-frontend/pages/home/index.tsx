@@ -9,11 +9,10 @@ import { UserContext } from "../../shared/contexts/UserContext";
 import { PageDetails, Footer } from "../../shared";
 import { PageInterface, UserInterface, SidepanelListElementInterface } from "../../shared/models/models";
 import SidepanelList from "../../shared/components/SidepanelList";
-import { types } from "sass";
 
 const { container, container__main, container__mainheader } = defaultStyles;
 const { button } = buttonStyles;
-const { content, header__welcometext } = moduleStyles;
+const { content, content__board, header__welcometext } = moduleStyles;
 
 export default function Home() {
   const [showDetails, setShowDetails] = useState(false);
@@ -69,7 +68,10 @@ export default function Home() {
             </Link>
         </header>
         <SidepanelList elements={sidepanelPagesList} />
-        {showDetails && <PageDetails {...pageDetails} />}
+        <section className={content__board}>
+          {!showDetails ? <h3>Welcome to Business Wiki!</h3> : ""}
+          {showDetails && <PageDetails {...pageDetails} />}
+        </section>
       </main>
 
       <Footer />
