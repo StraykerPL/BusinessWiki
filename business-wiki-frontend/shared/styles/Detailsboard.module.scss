@@ -1,0 +1,18 @@
+.board {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__title {
+        height: 30px;
+    }
+
+    &__content {
+        min-height: 40px;
+        overflow-wrap: break-word;
+    }
+
+    &__createdby {
+        height: 30px;
+    }
+}

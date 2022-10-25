@@ -1,4 +1,4 @@
-import { TextInputProps } from "../models/TextInputProps";
+import { TextInputProps } from "../models/models";
 import inputStyles from "../styles/TextInput.module.scss";
 
 const { input, input__label, input__textbox } = inputStyles;

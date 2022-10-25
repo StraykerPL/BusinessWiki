@@ -4,16 +4,19 @@ import moduleStyles from "../../shared/styles/Home.module.scss";
 
 import Head from "next/head";
 import Link from "next/link";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { UserContext } from "../../shared/contexts/UserContext";
-import { PageForm, SidepanelListElement, SidepanelListAddElement, PageDetails, Footer } from "../../shared";
+import { PageDetails, Footer } from "../../shared";
 import { PageInterface, UserInterface, SidepanelListElementInterface } from "../../shared/models/models";
+import SidepanelList from "../../shared/components/SidepanelList";
 
 const { container, container__main, container__mainheader } = defaultStyles;
 const { button } = buttonStyles;
-const { content, header__welcometext, content__sidepanel, content__board } = moduleStyles;
+const { content, content__board, header__welcometext } = moduleStyles;
 
 export default function Home() {
+  const [showDetails, setShowDetails] = useState(false);
+  const [pageDetails, setPageDetails] = useState({} as PageInterface);
   const { user } = useContext(UserContext);
 
   let pagesList: Array<PageInterface> = [
@@ -38,25 +41,13 @@ export default function Home() {
   ];
 
   const showPageContent = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    return (
-      <></>
-    );
-  };
+    setShowDetails(!showDetails);
 
-  const addPageEvent = () => {
-    return (
-      <PageForm />
-    );
-  };
+    const selectedElementObject = e.target as typeof e.target & {
+      id: { value: number }
+    };
 
-  const showSidepanelList = (): JSX.Element => {
-    return (
-      <>
-        {sidepanelPagesList.length > 0 ? sidepanelPagesList.map(
-          (element) => <SidepanelListElement key={element.id} clickEvent={element.clickEvent} title={element.title} id={0} />
-          ) : ""}
-      </>
-    );
+    setPageDetails(pagesList.at(selectedElementObject.id.value));
   };
 
   return (
@@ -76,14 +67,10 @@ export default function Home() {
               <button className={button}>LOGOUT</button>
             </Link>
         </header>
-        <section className={content__sidepanel}>
-          {showSidepanelList()}
-          <SidepanelListAddElement addPageEvent={addPageEvent} />
-        </section>
+        <SidepanelList elements={sidepanelPagesList} />
         <section className={content__board}>
-          {sidepanelPagesList.length > 0 ?
-            <PageDetails title={pagesList[0].title} content={pagesList[0].content} createdBy={pagesList[0].createdBy} id={0} /> :
-            <div>Welcome to Business Wiki</div>}
+          {!showDetails ? <h3>Welcome to Business Wiki!</h3> : ""}
+          {showDetails && <PageDetails {...pageDetails} />}
         </section>
       </main>
 
