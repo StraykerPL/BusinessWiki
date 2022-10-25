@@ -1,4 +1,4 @@
-import { MouseEventHandler } from "react";
+import { MouseEventHandler, ReactNode } from "react";
 
 export interface PageInterface {
     id: number,
@@ -22,6 +22,10 @@ export interface TextInputProps {
     type: string;
     text: string;
     placeholder: string;
+}
+
+export interface LayoutInputProps {
+    children: ReactNode
 }
 
 export interface UserInterface {

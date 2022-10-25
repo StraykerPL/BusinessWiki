@@ -1,7 +1,8 @@
 import Head from "next/head";
+import { LayoutInputProps } from "../models/models";
 import Footer from "./Footer";
 
-const Layout = ({ children }) => {
+const Layout = ({ children }: LayoutInputProps) => {
   return (
     <>
         <Head>
