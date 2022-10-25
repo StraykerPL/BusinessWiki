@@ -24,6 +24,10 @@ export interface TextInputProps {
     placeholder: string;
 }
 
+export interface SidepanelListInputProps {
+    elements: Array<SidepanelListElementInterface>
+}
+
 export interface UserInterface {
     username: string,
     password: string
