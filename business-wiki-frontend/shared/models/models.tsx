@@ -1,9 +1,9 @@
-import { MouseEventHandler, ReactNode } from "react";
+import { FormEventHandler, MouseEventHandler, ReactNode } from "react";
 
 export interface PageInterface {
     id: number,
     title: string,
-    content: string
+    content: string,
     createdBy: UserInterface
 }
 
@@ -18,10 +18,10 @@ export interface SidepanelListElementInterface {
 }
 
 export interface TextInputProps {
-    id: string;
-    type: string;
-    text: string;
-    placeholder: string;
+    id: string,
+    type: string,
+    text: string,
+    placeholder: string
 }
 
 export interface SidepanelListInputProps {
@@ -30,6 +30,11 @@ export interface SidepanelListInputProps {
 
 export interface LayoutInputProps {
     children: ReactNode
+}
+
+export interface PageFormInputProps {
+    submitEvent: FormEventHandler<HTMLFormElement>
+    closeEvent: MouseEventHandler<HTMLButtonElement>
 }
 
 export interface UserInterface {

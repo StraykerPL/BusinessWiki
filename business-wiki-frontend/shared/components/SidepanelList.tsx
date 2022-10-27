@@ -13,12 +13,10 @@ const SidepanelList = ({ elements }: SidepanelListInputProps) => {
         );
     };
 
-    const addPageEvent = () => {};
-
     return (
         <section className={sidepanel}>
             {elements.map((element) => createElementHTML(element))}
-            <SidepanelListAddElement addPageEvent={addPageEvent} />
+            <SidepanelListAddElement />
         </section>
     );
 };
